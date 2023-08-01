@@ -31,7 +31,7 @@ const MapAndCuboid: React.FC = () => {
   const captureVisibleRegion = async () => {
     if (mapRef.current && canvasRef.current && sceneRef.current) {
       const texture = new BABYLON.Texture(
-        `https://maps.googleapis.com/maps/api/staticmap?center=${selectedPosition.lat},${selectedPosition.lng}&zoom=${mapRef.current.zoom}&size=512x512&key=AIzaSyCWLxF5gjxNcLPuILwbe0hsBaRWS6BhyC0`,
+        `https://maps.googleapis.com/maps/api/staticmap?center=${selectedPosition.lat},${selectedPosition.lng}&zoom=${mapRef.current.zoom}&size=512x512&key=${process.env.REACT_APP_GOOGLE_MAP_API_KEY || ""}`,
         sceneRef.current
       );
       const material = new BABYLON.StandardMaterial(
